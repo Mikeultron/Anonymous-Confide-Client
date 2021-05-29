@@ -1,0 +1,33 @@
+import styled from "styled-components";
+import {
+  breakPoints,
+  buttonThemes,
+  colors,
+  fontFamily,
+  fontSize,
+} from "utils/styles";
+
+export const PrimaryButton = styled.button`
+  background-color: ${(props) => props.theme.background ?? colors.mainColor};
+  color: ${(props) => props.theme.foreground ?? "white"};
+  border-radius: 999px;
+  font-size: ${fontSize.S};
+  font-family: ${fontFamily.poppins.regular};
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  @media screen and (max-width: ${breakPoints.tablet}px) {
+    padding: 5px 10px;
+  }
+`;
+
+export const SecondaryButton = styled(PrimaryButton)`
+  border: 1px solid ${colors.mainColor};
+  color: ${colors.mainColor};
+  background-color: transparent;
+`;
+
+PrimaryButton.defaultProps = {
+  theme: buttonThemes.primary,
+};

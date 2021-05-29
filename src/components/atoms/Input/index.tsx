@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes } from "react";
 import { StyledInput } from "./styles";
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
