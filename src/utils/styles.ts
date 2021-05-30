@@ -11,6 +11,9 @@ export const fontFamily = {
     semiBold: "Poppins-SemiBold",
     bold: "Poppins-Bold",
   },
+  openSans: {
+    regular: "OpenSans-Regular",
+  },
 };
 
 export const fontSize = {

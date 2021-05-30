@@ -11,6 +11,9 @@ export const Left = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
+  svg {
+    cursor: pointer;
+  }
 `;
 
 export const Right = styled(Left)`

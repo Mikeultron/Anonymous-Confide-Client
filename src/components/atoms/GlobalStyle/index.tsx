@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import { breakPoints, fontFamily } from "utils/styles";
 import {
+  openSansRegular,
   poppinsBold,
   poppinsMedium,
   poppinsRegular,
@@ -36,6 +37,14 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${fontFamily.poppins.bold};
     src: url(${poppinsBold});
     font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face{
+    font-family: ${fontFamily.openSans.regular};
+    src: url(${openSansRegular});
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
   }

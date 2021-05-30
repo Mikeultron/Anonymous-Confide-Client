@@ -10,7 +10,7 @@ import {
   UserImage,
 } from "../styles";
 function LoggedInNavbar() {
-  const size = 50;
+  const pravatarSize = 50;
   return (
     <Wrapper>
       <Left>
@@ -23,7 +23,7 @@ function LoggedInNavbar() {
       </Left>
       <Right>
         <Searchbar />
-        <UserImage src={`https://i.pravatar.cc/${size}`} />
+        <UserImage src={`https://i.pravatar.cc/${pravatarSize}`} />
         <Button>Confide</Button>
       </Right>
     </Wrapper>
