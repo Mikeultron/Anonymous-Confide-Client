@@ -1,7 +1,12 @@
-import {} from "./styles";
+import { ReactNode } from "react";
+import { Wrapper } from "./styles";
 
-function Layout() {
-  return <div></div>;
+interface IProps {
+  children: ReactNode;
+}
+
+function Layout({ children }: IProps) {
+  return <Wrapper>{children}</Wrapper>;
 }
 
 export default Layout;

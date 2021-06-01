@@ -15,8 +15,8 @@ export const PrimaryButton = styled.button`
   font-family: ${fontFamily.poppins.regular};
   outline: none;
   border: none;
-  padding: 10px 20px;
   cursor: pointer;
+  padding: 10px 20px;
   @media screen and (max-width: ${breakPoints.tablet}px) {
     padding: 5px 10px;
   }

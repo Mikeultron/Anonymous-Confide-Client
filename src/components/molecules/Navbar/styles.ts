@@ -4,7 +4,7 @@ import { fontFamily, fontSize } from "utils/styles";
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 25px 50px;
+  padding: 0.7rem 1.4rem;
 `;
 
 export const Left = styled.div`

@@ -1,4 +1,5 @@
 import { InputHTMLAttributes } from "react";
+import PasswordInput from "./PasswordInput";
 import { StyledInput } from "./styles";
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -7,7 +8,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 
 function Input(props: IProps) {
   const { isPassword, ...rest } = props;
-  return <StyledInput {...rest} />;
+  return isPassword ? <PasswordInput /> : <StyledInput {...rest} />;
 }
 
 export default Input;

@@ -1,6 +1,7 @@
+import Authentication from "./Authentication";
 import Landing from "./Landing";
-import Login from "./Login";
 import Main from "./Main";
-import Register from "./Register";
+import Notifications from "./Main/Notifications";
+import NotFound from "./NotFound";
 
-export { Login, Register, Landing, Main };
+export { Landing, Main, Authentication, Notifications, NotFound };

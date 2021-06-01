@@ -1,17 +1,26 @@
 import { Navbar } from "components/molecules";
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./Home";
+import NotFound from "pages/NotFound";
+import { Route, Switch } from "react-router-dom";
+import { routes } from "./routes";
 
 function Main() {
   return (
     <div>
       <Navbar loggedIn={true} />
-      <Router>
+      <div>
         <Switch>
-          <Route path="/home" exact={true} component={Home} />
+          {routes.map((route) => {
+            return (
+              <Route
+                path={route.path}
+                exact={route.exact}
+                component={route.component}
+              />
+            );
+          })}
+          <Route component={NotFound} />
         </Switch>
-      </Router>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,16 @@
-import React from "react";
+import { Layout } from "components/containers";
+import Discussions from "./Discussions";
+import HotTopics from "./HotTopics";
+import Overview from "./Overview";
 
 function Home() {
-  return <div></div>;
+  return (
+    <Layout>
+      <Overview />
+      <Discussions />
+      <HotTopics />
+    </Layout>
+  );
 }
 
 export default Home;

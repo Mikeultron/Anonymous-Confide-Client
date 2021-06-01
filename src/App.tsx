@@ -1,4 +1,4 @@
-import GlobalStyle from "components/atoms/GlobalStyle";
+import { GlobalStyle } from "components/atoms";
 import { LandingRouter } from "routes";
 
 function App() {
