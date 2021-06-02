@@ -6,8 +6,14 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 0.5rem;
-  @media (min-width: ${breakPoints.tablet}px) and (max-width: ${breakPoints.desktop -
+  @media screen and (min-width: ${breakPoints.tablet}px) and (max-width: ${breakPoints.desktop -
     24}px) {
     grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      "discussions hottopics"
+      "discussions overview";
+  }
+  @media (max-width: ${breakPoints.tablet}px) {
+    grid-template-columns: 100%;
   }
 `;

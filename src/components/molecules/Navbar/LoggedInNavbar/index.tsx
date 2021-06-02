@@ -1,6 +1,7 @@
 import { IcHome, IcNotification, IcTag } from "assets";
 import { Button } from "components/atoms";
 import { Searchbar } from "components/molecules";
+
 import {
   Logo,
   Wrapper,

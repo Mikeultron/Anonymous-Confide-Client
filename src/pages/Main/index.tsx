@@ -9,12 +9,13 @@ function Main() {
       <Navbar loggedIn={true} />
       <div>
         <Switch>
-          {routes.map((route) => {
+          {routes.map((route, i) => {
             return (
               <Route
                 path={route.path}
                 exact={route.exact}
                 component={route.component}
+                key={i}
               />
             );
           })}

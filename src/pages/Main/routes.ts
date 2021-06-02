@@ -1,10 +1,11 @@
+import { ComponentType } from "react";
 import Home from "./Home";
 import Notifications from "./Notifications";
 
 interface IRoutes {
   path: string;
   exact: boolean;
-  component: React.ComponentType;
+  component: ComponentType;
 }
 
 export const routes: IRoutes[] = [
