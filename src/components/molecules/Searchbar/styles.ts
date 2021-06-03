@@ -6,12 +6,14 @@ export const Wrapper = styled.div`
 `;
 
 export const SearchInput = styled.input`
-  padding: 10px 20px;
+  box-sizing: border-box;
+  padding: 0.4rem 0.5rem;
   border: 1px solid ${colors.subtleHigh};
   outline: none;
   font-size: ${fontSize.S};
   font-family: ${fontFamily.poppins.regular};
   border-radius: 5px;
+  width: 100%;
   &:focus {
     & ~ svg,
     & ~ label {

@@ -1,9 +1,11 @@
-import { Navbar } from "components/molecules";
+import { BottomNavbar, Navbar } from "components/molecules";
+import { useViewport } from "contexts/viewport";
 import NotFound from "pages/NotFound";
 import { Route, Switch } from "react-router-dom";
 import { routes } from "./routes";
 
 function Main() {
+  const { width } = useViewport();
   return (
     <div>
       <Navbar loggedIn={true} />
@@ -22,6 +24,7 @@ function Main() {
           <Route component={NotFound} />
         </Switch>
       </div>
+      {width <= 768 && <BottomNavbar />}
     </div>
   );
 }
