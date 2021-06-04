@@ -1,8 +1,13 @@
 import API from "configs/api";
-import { IPayload } from "utils/interfaces";
+import {
+  ILoginData,
+  IPayload,
+  IPromiseResult,
+  IRegisterData,
+} from "utils/interfaces";
 
-export const login = (payload: any) => {
-  return new Promise((resolve, reject) => {
+export const login = (payload: ILoginData) => {
+  return new Promise<IPromiseResult>((resolve, reject) => {
     const data: IPayload = {
       body: payload,
     };
@@ -19,8 +24,8 @@ export const login = (payload: any) => {
   });
 };
 
-export const register = (payload: any) => {
-  return new Promise((resolve, reject) => {
+export const register = (payload: IRegisterData) => {
+  return new Promise<IPromiseResult>((resolve, reject) => {
     const data: IPayload = {
       body: payload,
     };

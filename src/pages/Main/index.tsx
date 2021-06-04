@@ -8,7 +8,7 @@ function Main() {
   const { width } = useViewport();
   return (
     <div>
-      <Navbar loggedIn={true} />
+      <Navbar loggedIn={false} />
       <div>
         <Switch>
           {routes.map((route, i) => {

@@ -6,6 +6,4 @@ const API = {
   login: apiRequest.post(apiEndpoints.login),
 };
 
-// *** Authentication ***
-
 export default API;

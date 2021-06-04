@@ -8,7 +8,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 
 function Input(props: IProps) {
   const { isPassword, ...rest } = props;
-  return isPassword ? <PasswordInput /> : <StyledInput {...rest} />;
+  return isPassword ? <PasswordInput {...rest} /> : <StyledInput {...rest} />;
 }
 
 export default Input;

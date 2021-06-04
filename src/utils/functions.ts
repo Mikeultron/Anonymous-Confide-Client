@@ -1,4 +1,6 @@
 import { AES, enc } from "crypto-js";
+import { toast } from "react-toastify";
+import { NotifyType } from "./types";
 
 export const getAndDecryptData = (identifier: string, password: string) => {
   try {
@@ -26,5 +28,28 @@ export const encryptAndStoreData = (
     localStorage.setItem(key, cipherText);
   } catch (e) {
     throw e;
+  }
+};
+
+export const notify = (message: string, type: NotifyType) => {
+  switch (type) {
+    case "success":
+      toast.success(`🙌 ${message}`);
+      break;
+    case "warning":
+      toast.warning(`⚠️ ${message}`);
+      break;
+    case "error":
+      toast.error(`❌ ${message}`);
+      break;
+    case "dark":
+      toast.dark(`${message}`);
+      break;
+    case "info":
+      toast.info(`ℹ️ ${message}`);
+      break;
+    default:
+      toast(`${message}`);
+      break;
   }
 };

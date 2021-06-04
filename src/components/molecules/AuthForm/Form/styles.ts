@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { fontSize } from "utils/styles";
+import { fontFamily, fontSize } from "utils/styles";
 
 export const StyledForm = styled.form`
   display: flex;
@@ -25,4 +25,16 @@ export const FormBody = styled.div`
 
 export const RowContainer = styled.div`
   display: flex;
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+`;
+
+export const ErrorMessage = styled.span`
+  color: red;
+  font-size: ${fontSize.S};
+  font-family: ${fontFamily.openSans.regular};
 `;

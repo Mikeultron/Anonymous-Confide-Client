@@ -1,4 +1,3 @@
-import { IcHome, IcNotification, IcTag } from "assets";
 import { useHistory } from "react-router";
 import Searchbar from "../Searchbar";
 import { routes } from "./routes";
@@ -24,9 +23,10 @@ function BottomNavbar() {
       >
         <Searchbar style={{ width: "100%" }} />
         <Container style={{ width: "100%" }}>
-          {routes.map((route) => {
+          {routes.map((route, i) => {
             return (
               <IconContainer
+                key={i}
                 selected={pathname === route.path}
                 onClick={(e) => onChangeRoute(route.path)}
               >
@@ -34,15 +34,6 @@ function BottomNavbar() {
               </IconContainer>
             );
           })}
-          {/* <IconContainer selected={pathname === "/home"}>
-            <IcHome width=".7rem" />
-          </IconContainer>
-          <IconContainer selected={pathname === "/home/tags"}>
-            <IcTag width=".7rem" />
-          </IconContainer>
-          <IconContainer selected={pathname === "/home/notifications"}>
-            <IcNotification width=".7rem" />
-          </IconContainer> */}
         </Container>
       </Container>
     </Wrapper>

@@ -1,14 +1,16 @@
 import { IcEye, IcEyeSlash } from "assets";
-import { useState } from "react";
+import { InputHTMLAttributes, useState } from "react";
 import { colors } from "utils/styles";
 import Input from "..";
 import { Wrapper, IconContainer } from "./styles";
 
-function PasswordInput() {
+interface IProps extends InputHTMLAttributes<HTMLInputElement> {}
+
+function PasswordInput({ ...rest }: IProps) {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <Wrapper>
-      <Input type={isVisible ? "text" : "password"} />
+      <Input type={isVisible ? "text" : "password"} {...rest} />
       <IconContainer onClick={(e) => setIsVisible((prev) => !prev)}>
         {isVisible ? (
           <IcEye fill={colors.subtleMid} width={".5rem"} />

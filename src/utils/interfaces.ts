@@ -19,3 +19,25 @@ export interface IButtonTheme {
 }
 
 export interface ISVGProps extends SVGProps<SVGSVGElement> {}
+
+export interface IFormDataState {
+  username?: string;
+  email: string;
+  password: string;
+}
+
+export interface IRegisterData {
+  username: string;
+  email: string;
+  password: string;
+}
+
+export interface ILoginData {
+  email: string;
+  password: string;
+}
+
+export interface IPromiseResult {
+  success: boolean;
+  data: any;
+}

@@ -8,7 +8,7 @@ export const Container = styled.div`
   padding: 0.8rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.7rem;
 `;
 
 export const HeadlineContainer = styled.div`
