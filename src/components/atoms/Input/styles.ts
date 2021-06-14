@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, fontFamily, fontSize } from "utils/styles";
+import { colors, fontFamily, fontSize } from "utils";
 
 export const StyledInput = styled.input`
   outline: none;

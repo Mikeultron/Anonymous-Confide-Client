@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { colors } from "utils/styles";
+import { colors } from "utils";
 
 interface IProps {
   selected?: boolean;

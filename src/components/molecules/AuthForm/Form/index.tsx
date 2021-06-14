@@ -1,20 +1,26 @@
 import { FormEvent, useState } from "react";
+import { useHistory } from "react-router";
 import { login, register } from "services";
-import { ValidationError } from "utils/errors";
-import { notify } from "utils/functions";
-import { IFormDataState } from "utils/interfaces";
-import { FormStateType } from "utils/types";
+import { ValidationError, notify, IFormDataState, FormStateType } from "utils";
+import { useDispatch } from "react-redux";
+
+// Components
 import Actions from "./Actions";
 import Inputs from "./Inputs";
+import { Loading } from "components/molecules";
 import { StyledForm, FormBody, FormTitle } from "./styles";
+import { setAuthState } from "reduxConfig";
 
 function Form() {
+  const [loading, setLoading] = useState<boolean>(false);
   const [formState, setFormState] = useState<FormStateType>("login");
   const [formDataState, setFormDataState] = useState<IFormDataState>({
     username: "",
     email: "",
     password: "",
   });
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const changeFormState = () => {
     const nextFormState = formState === "register" ? "login" : "register";
@@ -34,12 +40,16 @@ function Form() {
   };
 
   const onLogin = async (email: string, password: string) => {
+    setLoading(true);
     const result = await login({ email, password }).catch((err) => err);
     if (result.success) {
       notify("Berhasil login", "success");
+      dispatch(setAuthState(true));
+      history.push("/home");
     } else {
       notify("Gagal login", "error");
     }
+    setLoading(false);
   };
 
   const onRegister = async (
@@ -47,6 +57,7 @@ function Form() {
     email: string,
     password: string
   ) => {
+    setLoading(true);
     const result = await register({
       username: username!,
       email,
@@ -57,6 +68,7 @@ function Form() {
     } else {
       notify("Gagal mendaftar", "error");
     }
+    setLoading(false);
   };
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -77,15 +89,18 @@ function Form() {
   };
 
   return (
-    <StyledForm onSubmit={onSubmit}>
-      <FormTitle style={{ textAlign: "center" }}>
-        {formState === "login" ? "Masuk" : "Daftar"}
-      </FormTitle>
-      <FormBody>
-        <Inputs formState={formState} setFormDataState={setFormDataState} />
-        <Actions formState={formState} changeFormState={changeFormState} />
-      </FormBody>
-    </StyledForm>
+    <>
+      {loading && <Loading />}
+      <StyledForm onSubmit={onSubmit}>
+        <FormTitle style={{ textAlign: "center" }}>
+          {formState === "login" ? "Masuk" : "Daftar"}
+        </FormTitle>
+        <FormBody>
+          <Inputs formState={formState} setFormDataState={setFormDataState} />
+          <Actions formState={formState} changeFormState={changeFormState} />
+        </FormBody>
+      </StyledForm>
+    </>
   );
 }
 

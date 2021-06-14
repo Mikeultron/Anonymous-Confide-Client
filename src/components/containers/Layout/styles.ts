@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakPoints } from "utils/styles";
+import { breakPoints } from "utils";
 
 export const Wrapper = styled.div`
   padding: 0.7rem 1.4rem;

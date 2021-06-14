@@ -1,11 +1,11 @@
 import { useViewport } from "contexts/viewport";
 import { useHistory } from "react-router";
+import { breakPoints } from "utils";
 
 // Components
 import { IcHome, IcNotification, IcTag } from "assets";
 import { Button } from "components/atoms";
 import { Searchbar } from "components/molecules";
-import { breakPoints } from "utils/styles";
 import { Logo, Wrapper, Left, Right, IconContainer } from "../styles";
 
 function GuestNavbar() {

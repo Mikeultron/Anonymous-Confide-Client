@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { fontFamily } from "utils/styles";
+import { fontFamily } from "utils";
 
 export const Wrapper = styled.footer`
   padding: 0.3rem 0.5rem;

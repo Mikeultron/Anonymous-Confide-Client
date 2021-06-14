@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, fontFamily, fontSize } from "utils/styles";
+import { colors, fontFamily, fontSize } from "utils";
 
 export const Title = styled.p`
   font-family: ${fontFamily.openSans.regular};

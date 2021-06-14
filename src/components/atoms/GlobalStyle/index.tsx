@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { breakPoints, fontFamily } from "utils/styles";
+import { breakPoints, fontFamily } from "utils";
 import {
   openSansRegular,
   poppinsBold,

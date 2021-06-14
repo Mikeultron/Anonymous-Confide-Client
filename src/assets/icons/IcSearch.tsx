@@ -1,5 +1,4 @@
-import React from "react";
-import { ISVGProps } from "utils/interfaces";
+import { ISVGProps } from "utils";
 
 function IcSearch({ ...rest }: ISVGProps) {
   return (

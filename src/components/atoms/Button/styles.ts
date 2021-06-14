@@ -1,11 +1,5 @@
 import styled from "styled-components";
-import {
-  breakPoints,
-  buttonThemes,
-  colors,
-  fontFamily,
-  fontSize,
-} from "utils/styles";
+import { breakPoints, buttonThemes, colors, fontFamily, fontSize } from "utils";
 
 export const PrimaryButton = styled.button`
   background-color: ${(props) => props.theme.background ?? colors.mainColor};

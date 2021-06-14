@@ -1,6 +1,5 @@
 import axios, { AxiosRequestConfig, Method } from "axios";
-import { getAndDecryptData } from "utils/functions";
-import { ILooseObject, IPayload } from "utils/interfaces";
+import { ILooseObject, IPayload, getAndDecryptData } from "utils";
 
 /**
  * @name apiInstance

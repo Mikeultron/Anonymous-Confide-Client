@@ -1,6 +1,6 @@
 import { Button } from "components/atoms";
 import { useHistory } from "react-router";
-import { FormStateType } from "utils/types";
+import { FormStateType } from "utils";
 import FormToggler from "../FormToggler";
 import GoogleLogin from "../GoogleLogin";
 import { ColumnContainer, RowContainer } from "../styles";

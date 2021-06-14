@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { IFormDataState } from "utils/interfaces";
-import { FormStateType } from "utils/types";
+import { IFormDataState, FormStateType } from "utils";
 
 // Components
 import { InputWithLabel } from "components/atoms";

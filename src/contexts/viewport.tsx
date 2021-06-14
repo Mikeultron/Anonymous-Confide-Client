@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState, FC } from "react";
-import { ViewportType } from "utils/types";
+import { ViewportType } from "utils";
 
 const viewportContext = createContext({});
 

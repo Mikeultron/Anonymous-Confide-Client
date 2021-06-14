@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { fontFamily, fontSize } from "utils/styles";
+import { fontFamily, fontSize } from "utils";
 
 export const Wrapper = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes } from "react";
-import { IButtonTheme } from "utils/interfaces";
+import { IButtonTheme } from "utils";
 import { PrimaryButton, SecondaryButton } from "./styles";
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {

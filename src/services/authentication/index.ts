@@ -1,10 +1,6 @@
 import API from "configs/api";
-import {
-  ILoginData,
-  IPayload,
-  IPromiseResult,
-  IRegisterData,
-} from "utils/interfaces";
+import { encryptAndStoreData } from "utils";
+import { ILoginData, IPayload, IPromiseResult, IRegisterData } from "utils";
 
 export const login = (payload: ILoginData) => {
   return new Promise<IPromiseResult>((resolve, reject) => {
@@ -15,7 +11,11 @@ export const login = (payload: ILoginData) => {
     API.login(data)
       .then((res) => {
         const token = res.data.token;
-        console.log(token);
+        encryptAndStoreData(
+          token,
+          "token",
+          process.env.REACT_APP_TOKEN_PASSWORD!
+        );
         resolve({ success: true, data: res });
       })
       .catch((err) => {

@@ -1,6 +1,6 @@
 import { IcSearch } from "assets";
 import { CSSProperties, useState, ChangeEvent } from "react";
-import { colors } from "utils/styles";
+import { colors } from "utils";
 import { Wrapper, SearchInput, Placeholder } from "./styles";
 
 interface IProps {

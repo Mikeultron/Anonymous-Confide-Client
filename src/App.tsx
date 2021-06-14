@@ -2,6 +2,8 @@ import { GlobalStyle } from "components/atoms";
 import ViewportProvider from "contexts/viewport";
 import { ToastContainer } from "react-toastify";
 import { LandingRouter } from "routes";
+import { store } from "reduxConfig";
+import { Provider } from "react-redux";
 import "./styles/react-toastify.css";
 
 function App() {
@@ -15,9 +17,11 @@ function App() {
         newestOnTop={true}
       />
       <GlobalStyle />
-      <ViewportProvider>
-        <LandingRouter />
-      </ViewportProvider>
+      <Provider store={store}>
+        <ViewportProvider>
+          <LandingRouter />
+        </ViewportProvider>
+      </Provider>
     </div>
   );
 }

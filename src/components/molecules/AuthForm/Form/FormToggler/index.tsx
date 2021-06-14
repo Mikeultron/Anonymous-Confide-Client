@@ -1,5 +1,5 @@
 import { HTMLAttributes } from "react";
-import { FormStateType } from "utils/types";
+import { FormStateType } from "utils";
 import { Title } from "./styles";
 
 interface IProps extends HTMLAttributes<HTMLParagraphElement> {

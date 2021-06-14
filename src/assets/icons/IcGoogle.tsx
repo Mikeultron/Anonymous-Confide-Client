@@ -1,4 +1,4 @@
-import { ISVGProps } from "utils/interfaces";
+import { ISVGProps } from "utils";
 
 function IcGoogle({ ...rest }: ISVGProps) {
   return (

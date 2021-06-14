@@ -1,6 +1,6 @@
 import { IcEye, IcEyeSlash } from "assets";
 import { InputHTMLAttributes, useState } from "react";
-import { colors } from "utils/styles";
+import { colors } from "utils";
 import Input from "..";
 import { Wrapper, IconContainer } from "./styles";
 
