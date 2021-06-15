@@ -1,5 +1,6 @@
 import { AES, enc } from "crypto-js";
 import { toast } from "react-toastify";
+import { renewToken } from "services";
 import { NotifyType } from "./types";
 
 export const getAndDecryptData = (identifier: string, password: string) => {
@@ -9,7 +10,7 @@ export const getAndDecryptData = (identifier: string, password: string) => {
     if (data) {
       const bytes = AES.decrypt(data.toString(), password);
       const decrypted = bytes.toString(enc.Utf8);
-      return decrypted;
+      return JSON.parse(decrypted);
     }
     return false;
   } catch (e) {
@@ -31,7 +32,7 @@ export const encryptAndStoreData = (
   }
 };
 
-export const notify = (message: string, type: NotifyType) => {
+export const notify = (message: string, type?: NotifyType) => {
   switch (type) {
     case "success":
       toast.success(`🙌 ${message}`);
@@ -52,4 +53,28 @@ export const notify = (message: string, type: NotifyType) => {
       toast(`${message}`);
       break;
   }
+};
+
+export const fetchNewToken = async () => {
+  const refreshToken = getAndDecryptData(
+    "refresh_token",
+    process.env.REACT_APP_REFRESH_TOKEN_PASSWORD!
+  ) as string;
+  try {
+    const result = await renewToken({ refreshToken }).catch((err) => err);
+    if (result.success) {
+      const { accessToken, refreshToken } = result.data.data;
+      encryptAndStoreData(
+        accessToken,
+        "access_token",
+        process.env.REACT_APP_TOKEN_PASSWORD!
+      );
+      encryptAndStoreData(
+        refreshToken,
+        "refresh_token",
+        process.env.REACT_APP_REFRESH_TOKEN_PASSWORD!
+      );
+      window.location.reload();
+    }
+  } catch (e) {}
 };

@@ -5,4 +5,9 @@ export type SetAuthState = {
   payload: boolean;
 };
 
-export type UserActionTypes = SetAuthState;
+export type SetUser = {
+  type: typeof actionTypes.userActionTypes.SET_USER;
+  payload: any;
+};
+
+export type UserActionTypes = SetAuthState | SetUser;

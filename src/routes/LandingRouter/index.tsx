@@ -1,21 +1,26 @@
 import { Landing, Main, Authentication } from "pages";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { getAndDecryptData } from "utils";
 import { setAuthState } from "reduxConfig";
 
 function LandingRouter() {
   const dispatch = useDispatch();
-  useEffect(() => {
+
+  const initializeUser = useCallback(async () => {
     const storageToken = getAndDecryptData(
-      "token",
+      "access_token",
       process.env.REACT_APP_TOKEN_PASSWORD!
     );
     if (storageToken) {
       dispatch(setAuthState(true));
     }
   }, [dispatch]);
+
+  useEffect(() => {
+    initializeUser();
+  }, [initializeUser]);
   return (
     <Router>
       <Switch>

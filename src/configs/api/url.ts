@@ -1,9 +1,10 @@
 import { appActiveConfig } from "../appConfig";
 
 const apiEndpoints = {
-  // *** Authentication Endpoints ***
   register: `${appActiveConfig.api.baseurl}/authentication/register`,
   login: `${appActiveConfig.api.baseurl}/authentication/login`,
+  getProfile: `${appActiveConfig.api.baseurl}/profile`,
+  renewToken: `${appActiveConfig.api.baseurl}/token`,
 };
 
 export { apiEndpoints };

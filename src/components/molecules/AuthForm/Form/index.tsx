@@ -1,7 +1,13 @@
-import { FormEvent, useState } from "react";
-import { useHistory } from "react-router";
-import { login, register } from "services";
-import { ValidationError, notify, IFormDataState, FormStateType } from "utils";
+import { FormEvent, useCallback, useState } from "react";
+
+import { getProfile, login, register } from "services";
+import {
+  ValidationError,
+  notify,
+  IFormDataState,
+  FormStateType,
+  encryptAndStoreData,
+} from "utils";
 import { useDispatch } from "react-redux";
 
 // Components
@@ -20,7 +26,6 @@ function Form() {
     password: "",
   });
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const changeFormState = () => {
     const nextFormState = formState === "register" ? "login" : "register";
@@ -39,13 +44,31 @@ function Form() {
     }
   };
 
+  const fetchProfile = useCallback(async () => {
+    setLoading(true);
+    const result = await getProfile().catch((err) => err);
+    if (result.success) {
+      const user = result?.data?.data?.data;
+      console.log("Fetch user after login", user);
+      encryptAndStoreData(
+        JSON.stringify(user),
+        "user",
+        process.env.REACT_APP_USER_DATA_PASSWORD!
+      );
+    } else {
+      notify("Something went wrong", "error");
+    }
+    setLoading(false);
+  }, []);
+
   const onLogin = async (email: string, password: string) => {
     setLoading(true);
     const result = await login({ email, password }).catch((err) => err);
     if (result.success) {
-      notify("Berhasil login", "success");
+      await fetchProfile();
       dispatch(setAuthState(true));
-      history.push("/home");
+      // history.push("/home");
+      notify("Selamat datang");
     } else {
       notify("Gagal login", "error");
     }

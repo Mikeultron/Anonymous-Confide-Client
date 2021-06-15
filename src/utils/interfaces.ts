@@ -26,6 +26,11 @@ export interface IFormDataState {
   password: string;
 }
 
+export interface IPromiseResult {
+  success: boolean;
+  data: any;
+}
+//
 export interface IRegisterData {
   username: string;
   email: string;
@@ -37,7 +42,15 @@ export interface ILoginData {
   password: string;
 }
 
-export interface IPromiseResult {
-  success: boolean;
-  data: any;
+export interface IRenewTokenData {
+  refreshToken: string;
+}
+
+export interface IUser {
+  email: string;
+  id: string;
+  image: string;
+  isAnonymous: boolean;
+  name: string;
+  username: string;
 }

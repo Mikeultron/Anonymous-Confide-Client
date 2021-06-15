@@ -2,6 +2,8 @@ import { IcHome, IcNotification, IcTag } from "assets";
 import { Button } from "components/atoms";
 import { Searchbar } from "components/molecules";
 import { useViewport } from "contexts/viewport";
+import { useEffect, useState } from "react";
+import { getAndDecryptData, IUser } from "utils";
 
 import {
   Logo,
@@ -12,8 +14,19 @@ import {
   UserImage,
 } from "../styles";
 function LoggedInNavbar() {
-  const pravatarSize = 50;
+  const [user, setUser] = useState<IUser>();
   const { width } = useViewport();
+
+  useEffect(() => {
+    const data = getAndDecryptData(
+      "user",
+      process.env.REACT_APP_USER_DATA_PASSWORD!
+    );
+    if (data) {
+      setUser(JSON.parse(data));
+    }
+  }, []);
+
   return (
     <Wrapper>
       <Left>
@@ -28,7 +41,10 @@ function LoggedInNavbar() {
       </Left>
       <Right>
         {width > 768 && <Searchbar />}
-        <UserImage src={`https://i.pravatar.cc/${pravatarSize}`} />
+        <UserImage
+          src={user?.image ?? "/Smiley.png"}
+          onClick={() => (window.location.href = "/home/profile")}
+        />
         <Button>Confide</Button>
       </Right>
     </Wrapper>

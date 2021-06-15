@@ -1,5 +1,11 @@
 import axios, { AxiosRequestConfig, Method } from "axios";
-import { ILooseObject, IPayload, getAndDecryptData } from "utils";
+import {
+  ILooseObject,
+  IPayload,
+  getAndDecryptData,
+  fetchNewToken,
+  IPromiseResult,
+} from "utils";
 
 /**
  * @name apiInstance
@@ -11,6 +17,39 @@ const apiInstance = axios.create({
   timeout: 60000,
   validateStatus: (status) => status >= 200 && status < 300,
 });
+
+// apiInstance.interceptors.request.use(
+//   async (config) => {
+//     const value = getAndDecryptData(
+//       "access_token",
+//       process.env.REACT_APP_TOKEN_PASSWORD!
+//     );
+//     config.headers = {
+//       Authorization: `Bearer ${value}`,
+//       Accept: "application/json",
+//       "Content-Type": "application/x-www-form-urlencoded",
+//     };
+//     return config;
+//   },
+//   (error) => {
+//     return Promise.reject<IPromiseResult>({ success: false, data: error });
+//   }
+// );
+
+// Will get new access token if current access token is expired
+apiInstance.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  async function (error) {
+    const originalRequest = error.config;
+    if (error.response.status === 403 && !originalRequest._retry) {
+      originalRequest._retry = true;
+      await fetchNewToken();
+    }
+    return Promise.reject<IPromiseResult>({ success: false, data: error });
+  }
+);
 
 /**
  * @name ApiRequest
@@ -78,7 +117,7 @@ class ApiRequest {
 
     if (token) {
       const token = getAndDecryptData(
-        "token",
+        "access_token",
         process.env.REACT_APP_TOKEN_PASSWORD ?? ""
       );
       baseHeaders.Authorization = `Bearer ${token || ""}`;
@@ -110,7 +149,6 @@ class ApiRequest {
         `RESPONSE ERROR - ${requestPayload.method} - ${requestPayload.url}`,
         err
       );
-      throw err;
     }
   }
 }

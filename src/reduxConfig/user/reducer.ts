@@ -3,10 +3,12 @@ import { UserActionTypes } from "./types";
 
 export interface IUserState {
   authState: boolean;
+  user: any;
 }
 
 const initialState: IUserState = {
   authState: false,
+  user: {},
 };
 
 export const userReducer = (
@@ -18,6 +20,11 @@ export const userReducer = (
       return {
         ...state,
         authState: action.payload,
+      };
+    case actionTypes.userActionTypes.SET_USER:
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;
