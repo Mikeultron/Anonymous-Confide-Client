@@ -11,8 +11,6 @@ export const login = (payload: ILoginData) => {
     API.login(data)
       .then((res) => {
         const { token, refreshToken } = res?.data;
-        console.log(refreshToken);
-        
         encryptAndStoreData(
           token,
           "access_token",

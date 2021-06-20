@@ -28,6 +28,7 @@ function Inputs({ formState, setFormDataState }: IProps) {
         />
       )}
       <InputWithLabel
+        placeholder="example@email.com"
         autoComplete="off"
         name="email"
         label="Email"

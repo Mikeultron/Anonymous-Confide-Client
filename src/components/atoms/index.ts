@@ -4,6 +4,9 @@ import GlobalStyle from "./GlobalStyle";
 import Headline from "./Headline";
 import Input from "./Input";
 import InputWithLabel from "./InputWithLabel";
+import MuteText from "./MuteText";
+import Paragraph from "./Paragraph";
+import RoundedImage from "./RoundedImage";
 import Spinner from "./Spinner";
 
 export {
@@ -14,4 +17,7 @@ export {
   GlobalStyle,
   FreepikCredit,
   Spinner,
+  RoundedImage,
+  MuteText,
+  Paragraph,
 };

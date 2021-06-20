@@ -24,10 +24,10 @@ export const IconContainer = styled.div<Pick<IProps, "selected">>`
   ${(props) =>
     props.selected &&
     css`
-      border-bottom: 2px solid ${colors.mainColor};
+      border-bottom: 2px solid ${colors.primary[100]};
       svg {
         padding-bottom: 0.1rem;
-        fill: ${colors.mainColor};
+        fill: ${colors.primary[100]};
       }
     `}
 `;

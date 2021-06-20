@@ -20,8 +20,13 @@ function Searchbar({ style }: IProps) {
         <>
           <IcSearch
             width=".5rem"
-            fill={colors.subtleMid}
-            style={{ position: "absolute", top: ".5rem", left: ".4rem" }}
+            fill={colors.black[40]}
+            style={{
+              position: "absolute",
+              top: ".5rem",
+              left: ".4rem",
+              cursor: "default",
+            }}
           />
           <Placeholder htmlFor="search">Search</Placeholder>
         </>

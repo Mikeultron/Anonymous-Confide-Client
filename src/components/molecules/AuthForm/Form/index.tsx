@@ -1,5 +1,4 @@
 import { FormEvent, useCallback, useState } from "react";
-
 import { getProfile, login, register } from "services";
 import {
   ValidationError,
@@ -8,14 +7,12 @@ import {
   FormStateType,
   encryptAndStoreData,
 } from "utils";
-import { useDispatch } from "react-redux";
 
 // Components
 import Actions from "./Actions";
 import Inputs from "./Inputs";
 import { Loading } from "components/molecules";
 import { StyledForm, FormBody, FormTitle } from "./styles";
-import { setAuthState } from "reduxConfig";
 
 function Form() {
   const [loading, setLoading] = useState<boolean>(false);
@@ -25,7 +22,6 @@ function Form() {
     email: "",
     password: "",
   });
-  const dispatch = useDispatch();
 
   const changeFormState = () => {
     const nextFormState = formState === "register" ? "login" : "register";
@@ -45,11 +41,9 @@ function Form() {
   };
 
   const fetchProfile = useCallback(async () => {
-    setLoading(true);
     const result = await getProfile().catch((err) => err);
     if (result.success) {
       const user = result?.data?.data?.data;
-      console.log("Fetch user after login", user);
       encryptAndStoreData(
         JSON.stringify(user),
         "user",
@@ -58,7 +52,6 @@ function Form() {
     } else {
       notify("Something went wrong", "error");
     }
-    setLoading(false);
   }, []);
 
   const onLogin = async (email: string, password: string) => {
@@ -66,9 +59,8 @@ function Form() {
     const result = await login({ email, password }).catch((err) => err);
     if (result.success) {
       await fetchProfile();
-      dispatch(setAuthState(true));
-      // history.push("/home");
       notify("Selamat datang");
+      window.location.replace("/home");
     } else {
       notify("Gagal login", "error");
     }

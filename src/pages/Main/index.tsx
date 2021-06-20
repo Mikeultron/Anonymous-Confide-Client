@@ -11,6 +11,7 @@ import { RootState } from "reduxConfig";
 function Main() {
   const { width } = useViewport();
   const { authState } = useSelector((state: RootState) => state.userReducer);
+
   return (
     <>
       <Navbar loggedIn={authState} />

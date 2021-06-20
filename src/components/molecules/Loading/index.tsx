@@ -1,10 +1,13 @@
 import { Spinner } from "components/atoms";
 import { Wrapper } from "./styles";
+import { ISpinnerProps } from "../../atoms/Spinner";
 
-function Loading() {
+interface IProps extends ISpinnerProps {}
+
+function Loading({ type, size, ...rest }: IProps) {
   return (
     <Wrapper>
-      <Spinner />
+      <Spinner type={type} size={size} {...rest} />
     </Wrapper>
   );
 }

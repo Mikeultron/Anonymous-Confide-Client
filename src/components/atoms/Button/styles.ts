@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { breakPoints, buttonThemes, colors, fontFamily, fontSize } from "utils";
 
 export const PrimaryButton = styled.button`
-  background-color: ${(props) => props.theme.background ?? colors.mainColor};
+  background-color: ${(props) => props.theme.background ?? colors.primary[100]};
   color: ${(props) => props.theme.foreground ?? "white"};
   border-radius: 999px;
   font-size: ${fontSize.S};
@@ -17,8 +17,8 @@ export const PrimaryButton = styled.button`
 `;
 
 export const SecondaryButton = styled(PrimaryButton)`
-  border: 1px solid ${colors.mainColor};
-  color: ${colors.mainColor};
+  border: 1px solid ${colors.primary[100]};
+  color: ${colors.primary[100]};
   background-color: transparent;
 `;
 

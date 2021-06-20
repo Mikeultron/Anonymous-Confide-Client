@@ -1,7 +1,8 @@
 import { Input } from "components/atoms";
+import { InputHTMLAttributes } from "react";
 import { Wrapper, InputLabel } from "./styles";
 
-interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   isPassword?: boolean;
 }

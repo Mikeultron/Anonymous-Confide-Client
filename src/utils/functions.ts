@@ -10,7 +10,7 @@ export const getAndDecryptData = (identifier: string, password: string) => {
     if (data) {
       const bytes = AES.decrypt(data.toString(), password);
       const decrypted = bytes.toString(enc.Utf8);
-      return JSON.parse(decrypted);
+      return decrypted;
     }
     return false;
   } catch (e) {
@@ -77,4 +77,16 @@ export const fetchNewToken = async () => {
       window.location.reload();
     }
   } catch (e) {}
+};
+
+export const parseJwt = (token: string) => {
+  try {
+    return JSON.parse(atob(token.split(".")[1]));
+  } catch (e) {
+    return null;
+  }
+};
+
+export const getCurrentTimestamp = () => {
+  return Math.floor(Date.now() / 1000);
 };

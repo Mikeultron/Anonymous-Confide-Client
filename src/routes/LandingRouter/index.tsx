@@ -2,7 +2,12 @@ import { Landing, Main, Authentication } from "pages";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useCallback, useEffect } from "react";
-import { getAndDecryptData } from "utils";
+import {
+  fetchNewToken,
+  getAndDecryptData,
+  getCurrentTimestamp,
+  parseJwt,
+} from "utils";
 import { setAuthState } from "reduxConfig";
 
 function LandingRouter() {
@@ -12,9 +17,23 @@ function LandingRouter() {
     const storageToken = getAndDecryptData(
       "access_token",
       process.env.REACT_APP_TOKEN_PASSWORD!
-    );
-    if (storageToken) {
-      dispatch(setAuthState(true));
+    ) as string;
+    const parsedToken = parseJwt(storageToken);
+    if (parsedToken) {
+      const tokenExpired = parsedToken?.exp;
+      const currentTimestamp = getCurrentTimestamp();
+      console.log(tokenExpired);
+      console.log(currentTimestamp);
+      // Check if token is expired
+      if (tokenExpired <= currentTimestamp) {
+        await fetchNewToken()
+          .then(() => dispatch(setAuthState(true)))
+          .catch(() => dispatch(setAuthState(false)));
+      } else {
+        dispatch(setAuthState(true));
+      }
+    } else {
+      dispatch(setAuthState(false));
     }
   }, [dispatch]);
 

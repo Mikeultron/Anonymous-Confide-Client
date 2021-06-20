@@ -1,3 +1,4 @@
+import { RoundedImage } from "components/atoms";
 import styled from "styled-components";
 import { fontFamily, fontSize } from "utils";
 
@@ -30,9 +31,6 @@ export const Logo = styled.h1`
   font-size: ${fontSize.L};
 `;
 
-export const UserImage = styled.img`
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
+export const UserImage = styled(RoundedImage)`
   cursor: pointer;
 `;

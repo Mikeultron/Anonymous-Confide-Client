@@ -9,7 +9,7 @@ const appEnvironment = {
   },
   prod: {
     api: {
-      baseurl: "http://localhost:5000/api/v1",
+      baseurl: "https://api-anonymous-confide.herokuapp.com/api/v1",
     },
   },
 };

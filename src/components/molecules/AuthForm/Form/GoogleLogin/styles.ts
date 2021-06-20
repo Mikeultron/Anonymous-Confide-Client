@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   justify-content: space-evenly;
   gap: 0.3rem;
   border-radius: 999px;
-  border: 1px solid ${colors.subtleHigh};
+  border: 1px solid ${colors.black[20]};
   padding: 10px 20px;
   cursor: pointer;
   @media screen and (max-width: ${breakPoints.tablet}px) {

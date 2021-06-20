@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
 
 export const Circle = styled.div`
   position: absolute;
-  border: 4px solid ${colors.mainColor};
+  border: 4px solid ${colors.primary[100]};
   opacity: 1;
   border-radius: 50%;
   animation: ${ripple} 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;

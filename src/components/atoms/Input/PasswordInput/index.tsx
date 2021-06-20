@@ -13,9 +13,9 @@ function PasswordInput({ ...rest }: IProps) {
       <Input type={isVisible ? "text" : "password"} {...rest} />
       <IconContainer onClick={(e) => setIsVisible((prev) => !prev)}>
         {isVisible ? (
-          <IcEye fill={colors.subtleMid} width={".5rem"} />
+          <IcEye fill={colors.black[40]} width={".5rem"} />
         ) : (
-          <IcEyeSlash width={".5rem"} fill={colors.subtleMid} />
+          <IcEyeSlash width={".5rem"} fill={colors.black[40]} />
         )}
       </IconContainer>
     </Wrapper>

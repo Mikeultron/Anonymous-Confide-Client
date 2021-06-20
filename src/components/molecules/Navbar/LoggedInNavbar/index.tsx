@@ -23,6 +23,7 @@ function LoggedInNavbar() {
       process.env.REACT_APP_USER_DATA_PASSWORD!
     );
     if (data) {
+      console.log("User parsed", JSON.parse(data));
       setUser(JSON.parse(data));
     }
   }, []);
@@ -42,6 +43,7 @@ function LoggedInNavbar() {
       <Right>
         {width > 768 && <Searchbar />}
         <UserImage
+          size="XL"
           src={user?.image ?? "/Smiley.png"}
           onClick={() => (window.location.href = "/home/profile")}
         />
