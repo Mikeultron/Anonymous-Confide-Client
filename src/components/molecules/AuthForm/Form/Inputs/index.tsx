@@ -44,6 +44,7 @@ function Inputs({ formState, setFormDataState }: IProps) {
         name="password"
         label="Password"
         isPassword={true}
+        inputStyle="password"
         onChange={(e) =>
           setFormDataState((prev) => ({
             ...prev,

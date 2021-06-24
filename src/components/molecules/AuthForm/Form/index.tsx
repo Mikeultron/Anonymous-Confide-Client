@@ -13,8 +13,10 @@ import Actions from "./Actions";
 import Inputs from "./Inputs";
 import { Loading } from "components/molecules";
 import { StyledForm, FormBody, FormTitle } from "./styles";
+import { useHistory } from "react-router";
 
 function Form() {
+  const history = useHistory();
   const [loading, setLoading] = useState<boolean>(false);
   const [formState, setFormState] = useState<FormStateType>("login");
   const [formDataState, setFormDataState] = useState<IFormDataState>({
@@ -59,10 +61,10 @@ function Form() {
     const result = await login({ email, password }).catch((err) => err);
     if (result.success) {
       await fetchProfile();
+      history.replace("/home");
       notify("Selamat datang");
-      window.location.replace("/home");
     } else {
-      notify("Gagal login", "error");
+      notify("Login gagal", "error");
     }
     setLoading(false);
   };
@@ -105,7 +107,7 @@ function Form() {
 
   return (
     <>
-      {loading && <Loading />}
+      {loading && <Loading type="ripple" />}
       <StyledForm onSubmit={onSubmit}>
         <FormTitle style={{ textAlign: "center" }}>
           {formState === "login" ? "Masuk" : "Daftar"}

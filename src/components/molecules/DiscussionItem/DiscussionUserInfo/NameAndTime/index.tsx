@@ -7,7 +7,7 @@ import { FlexColumnWrapper } from "components/containers";
 function NameAndTime() {
   return (
     <FlexColumnWrapper style={{ gap: ".2rem" }}>
-      <Headline style={{ fontSize: fontSize.M }}>Mikeul</Headline>
+      <Headline style={{ fontSize: fontSize.M }}>Anonymous</Headline>
       <MuteText>11 April 2001, 11:53</MuteText>
     </FlexColumnWrapper>
   );

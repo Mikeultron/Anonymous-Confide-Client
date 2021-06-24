@@ -1,4 +1,3 @@
-import React from "react";
 import { ISVGProps } from "utils";
 
 function IcEyeSlash({ ...rest }: ISVGProps) {

@@ -70,6 +70,10 @@ export const breakPoints = {
 export const buttonThemes = {
   primary: {
     background: colors.primary[100],
-    foreground: "#fff",
+    foreground: colors.white[100],
+  },
+  danger: {
+    background: colors.danger[40],
+    foreground: colors.danger[100],
   },
 };

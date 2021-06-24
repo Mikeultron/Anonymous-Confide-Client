@@ -25,7 +25,7 @@ function GuestNavbar() {
       </Left>
       <Right>
         {width > breakPoints.tablet && <Searchbar />}
-        <Button onClick={() => history.push("/auth")} secondary={true}>
+        <Button onClick={() => history.push("/auth")} buttonStyle="secondary">
           Login
         </Button>
         <Button onClick={() => history.push("/auth")}>Register</Button>

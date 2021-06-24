@@ -29,7 +29,7 @@ function Actions({ formState, changeFormState }: IProps) {
         <Button
           onClick={() => history.push("/home")}
           style={{ padding: ".2rem .4rem" }}
-          secondary={true}
+          buttonStyle="secondary"
         >
           Lewati
         </Button>

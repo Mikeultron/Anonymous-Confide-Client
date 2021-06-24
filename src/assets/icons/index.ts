@@ -11,6 +11,7 @@ import IcLikeFilled from "./IcLikeFilled";
 import IcDislikeFilled from "./IcDislikeFilled";
 import IcComment from "./IcComment";
 import IcShare from "./IcShare";
+import IcClose from "./IcClose";
 
 export {
   IcHome,
@@ -26,4 +27,5 @@ export {
   IcDislikeFilled,
   IcComment,
   IcShare,
+  IcClose,
 };

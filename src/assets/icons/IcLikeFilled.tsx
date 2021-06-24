@@ -1,4 +1,3 @@
-import React from "react";
 import { ISVGProps } from "utils";
 
 function IcLikeFilled({ ...rest }: ISVGProps) {

@@ -8,6 +8,7 @@ import MuteText from "./MuteText";
 import Paragraph from "./Paragraph";
 import RoundedImage from "./RoundedImage";
 import Spinner from "./Spinner";
+import TextArea from "./TextArea";
 
 export {
   Input,
@@ -20,4 +21,5 @@ export {
   RoundedImage,
   MuteText,
   Paragraph,
+  TextArea,
 };
